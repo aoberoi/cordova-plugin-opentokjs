@@ -33,7 +33,9 @@
   },
   "devDependencies": {
     "browserify": "^10.2.4",
+    "event-stream": "^3.3.1",
     "gulp": "^3.9.0",
+    "replacestream": "^2.1.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "author": "Ankur Oberoi <aoberoi@gmail.com>",
