@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-opentokjs" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+  <name>OpenTokPlugin</name>
+  <description />
+  <author>Ankur Oberoi</author>
+  <license>MIT</license>
+  <keywords>opentok,tokbox,video-chat,webrtc,realtime,rtc</keywords>
+
+  <!--TODO:<info></info>-->
+
+  <engines>
+    <engine name="cordova-android" version=">=4.0.0" />
+    <!-- TODO: what are the other platform and the cordova-lib requirements? -->
+  </engines>
+
+  <!-- only needed for android -->
+  <dependency id="cordova-plugin-crosswalk-webview" version=">=1.2.0" />
+
+  <platform name="android">
+    <hook type="before_plugin_install" src="scripts/fetch-js-client.js" />
+
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="OpenTokPlugin">
+        <param name="android-package" value="me.aoberoi.cordova.opentokjs.OpenTokPlugin" />
+      </feature>
+    </config-file>
+
+    <config-file parent="/*" target="AndroidManifest.xml">
+      <uses-permission android:name="android.permission.RECORD_AUDIO" />
+      <uses-permission android:name="android.permission.CAMERA" />
+    </config-file>
+
+    <source-file src="src/android/OpenTokPlugin.java" target-dir="src/me/aoberoi/cordova/opentokjs/OpenTokPlugin" />
+
+    <js-module src="src/android/opentok.js" name="OpenTokClient">
+      <clobbers target="OT"/>
+    </js-module>
+  </platform>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="OpenTokPlugin">
+        <param name="ios-package" value="OpenTokPlugin" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/ios/OpenTokPlugin.m" />
+  </platform>
+
+  <platform name="browser">
+    <hook type="before_plugin_install" src="scripts/fetch-js-client.js" />
+    <js-module src="src/browser/opentok.js" name="OpenTokClient">
+      <clobbers target="OT"/>
+    </js-module>
+  </platform>
+</plugin>
