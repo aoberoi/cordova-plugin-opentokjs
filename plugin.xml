@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-opentokjs" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-opentokjs" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>OpenTokPlugin</name>
   <description />
   <author>Ankur Oberoi</author>
@@ -14,7 +14,7 @@
     Its built to make use of the official opentok.js client SDK over plugins which expose WebRTC
     primitives to the Cordova web view.
 
-    Learn more: <https://tokbox.com/platform>
+    Learn more: &gt;https://tokbox.com/platform&lt;
   </info>
 
   <engines>
@@ -25,7 +25,7 @@
   <dependency id="cordova-plugin-crosswalk-webview" spec="^1.2.0" />
 
   <!-- only needed for ios -->
-  <dependency id="com.eface2face.iosrtc" spec="^1.2.8" />
+  <dependency id="com.eface2face.iosrtc" spec="^1.2.9" />
 
   <!-- TODO: do we need any native code for android? -->
   <platform name="android">
