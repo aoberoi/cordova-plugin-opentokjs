@@ -23,7 +23,7 @@ module.exports = function(context) {
 
   var config = new ConfigParser(path.join(context.opts.projectRoot, 'config.xml'));
   var opentokClientVersion =
-    config.getPreference('opentokClientVersion', context.opts.plugin.platform) || 'v2';
+    config.getPreference('OpentokClientVersion', context.opts.plugin.platform) || 'v2';
 
   var modulePath =
     path.join(context.opts.plugin.dir, 'src', context.opts.plugin.platform, 'opentok.js');
@@ -44,6 +44,9 @@ module.exports = function(context) {
           max_match_len: 1000
         }))
         .pipe(replacestream('onError = function onError (event) {\n          cleanup();\n          unbindNativeStream(videoElement);\n', 'onError = function onError (event) {\n          if (event.target.error.code === window.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {\n            return onLoad();\n          }\n          cleanup();\n          unbindNativeStream(videoElement);\n', {
+          max_match_len: 1000
+        }))
+        .pipe(replacestream('var _onVideoError = OT.$.bind(function(event) {\n', 'var _onVideoError = OT.$.bind(function(event) {\n          if (event.target.error.code === window.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {\n            return;\n          }\n', {
           max_match_len: 1000
         }));
       }

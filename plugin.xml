@@ -9,15 +9,14 @@
   <!--TODO:<info></info>-->
 
   <engines>
-    <engine name="cordova-android" version=">=4.0.0" />
-    <!-- TODO: what are the other platform and the cordova-lib requirements? -->
+    <!-- TODO: what are the platform and the cordova engine requirements? -->
   </engines>
 
   <!-- only needed for android -->
-  <dependency id="cordova-plugin-crosswalk-webview" version=">=1.2.0" />
+  <dependency id="cordova-plugin-crosswalk-webview" spec="^1.2.0" />
 
   <!-- only needed for ios -->
-  <dependency id="com.eface2face.iosrtc" version=">=1.2.8" />
+  <dependency id="com.eface2face.iosrtc" spec="^1.2.8" />
 
   <!-- TODO: do we need any native code for android? -->
   <platform name="android">
@@ -41,6 +40,7 @@
     </js-module>
   </platform>
 
+  <!-- TODO: do we need any native code for ios? -->
   <platform name="ios">
     <hook type="before_plugin_install" src="scripts/fetch-js-client.js" />
 
