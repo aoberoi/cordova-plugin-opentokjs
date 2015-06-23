@@ -6,7 +6,16 @@
   <license>MIT</license>
   <keywords>opentok,tokbox,video-chat,webrtc,realtime,rtc</keywords>
 
-  <!--TODO:<info></info>-->
+  <info>
+    OpenTok lets you weave real time communications with live video and audio into your application.
+
+    This package is a Cordova plugin to enable use of OpenTok on the iOS, Android, and Browser platforms.
+
+    Its built to make use of the official opentok.js client SDK over plugins which expose WebRTC
+    primitives to the Cordova web view.
+
+    Learn more: <https://tokbox.com/platform>
+  </info>
 
   <engines>
     <!-- TODO: what are the platform and the cordova engine requirements? -->
