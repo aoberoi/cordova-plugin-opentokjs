@@ -32,10 +32,23 @@ module.exports = function(context) {
   var moduleWriteStream = fs.createWriteStream(modulePath);
   moduleWriteStream.on('open', function() {
     https.get(clientUrl.replace('VERSION', opentokClientVersion), function(res) {
-      res.pipe(replacestream(/if \(location\.protocol === 'file:'\) {[^}]*}/gm, '/* removed by cordova-plugin-opentokjs */', {
+      var sourceStream = res.pipe(replacestream(/if \(location\.protocol === 'file:'\) {[^}]*}/gm, '/* removed by cordova-plugin-opentokjs */', {
         max_match_len: 1000
-      }))
-      .pipe(through(
+      }));
+
+      if (context.opts.plugin.platform === 'ios') {
+        sourceStream = sourceStream.pipe(replacestream('var isSupported = $.env.name === \'Safari\' ||\n                  ($.env.name === \'IE\' && $.env.version >= 8 &&', 'var isSupported =  ($.env.name === \'IE\' && $.env.version >= 8 &&', {
+          max_match_len: 1000
+        }))
+        .pipe(replacestream('loadedEvent = webRtcStream.getVideoTracks().length > minVideoTracksForTimeUpdate ?\n          \'timeupdate\' : \'loadedmetadata\';', 'loadedEvent = \'loadedmetadata\';', {
+          max_match_len: 1000
+        }))
+        .pipe(replacestream('onError = function onError (event) {\n          cleanup();\n          unbindNativeStream(videoElement);\n', 'onError = function onError (event) {\n          if (event.target.error.code === window.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {\n            return onLoad();\n          }\n          cleanup();\n          unbindNativeStream(videoElement);\n', {
+          max_match_len: 1000
+        }));
+      }
+
+      sourceStream.pipe(through(
         function write(data) {
           this.emit('data', data);
         },

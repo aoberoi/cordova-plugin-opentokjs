@@ -16,6 +16,10 @@
   <!-- only needed for android -->
   <dependency id="cordova-plugin-crosswalk-webview" version=">=1.2.0" />
 
+  <!-- only needed for ios -->
+  <dependency id="com.eface2face.iosrtc" version=">=1.2.8" />
+
+  <!-- TODO: do we need any native code for android? -->
   <platform name="android">
     <hook type="before_plugin_install" src="scripts/fetch-js-client.js" />
 
@@ -38,6 +42,8 @@
   </platform>
 
   <platform name="ios">
+    <hook type="before_plugin_install" src="scripts/fetch-js-client.js" />
+
     <config-file parent="/*" target="config.xml">
       <feature name="OpenTokPlugin">
         <param name="ios-package" value="OpenTokPlugin" />
@@ -45,6 +51,9 @@
     </config-file>
 
     <source-file src="src/ios/OpenTokPlugin.m" />
+
+    <js-module src="src/ios/opentok.js" name="OpenTokClient">
+    </js-module>
   </platform>
 
   <platform name="browser">
