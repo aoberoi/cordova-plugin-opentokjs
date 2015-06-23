@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-opentokjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "cordova": {
     "id": "cordova-plugin-opentokjs",
     "platforms": [
@@ -14,6 +14,10 @@
     {
       "name": "cordova-android",
       "version": ">=4.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8.0"
     }
   ],
   "keywords": [
@@ -28,6 +32,14 @@
     "cordova-android",
     "rtc"
   ],
+  "homepage": "https://github.com/aoberoi/cordova-plugin-opentokjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aoberoi/cordova-plugin-opentokjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aoberoi/cordova-plugin-opentokjs/issues"
+  },
   "peerDependencies": {
     "cordova-plugin-crosswalk-webview": "^1.2.0"
   },
