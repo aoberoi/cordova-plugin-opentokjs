@@ -25,7 +25,7 @@
   <dependency id="cordova-plugin-crosswalk-webview" spec="^1.2.0" />
 
   <!-- only needed for ios -->
-  <dependency id="com.eface2face.iosrtc" spec="^1.2.9" />
+  <dependency id="cordova-plugin-iosrtc" spec="^1.3.0" />
 
   <!-- TODO: do we need any native code for android? -->
   <platform name="android">

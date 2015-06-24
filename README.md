@@ -44,7 +44,7 @@ different approach to architecture.
 The approach is to run the official opentok.js client SDK, with as few changes as possible, on top
 of lower level plugins that present the standard WebRTC based APIs. This is possible thanks to
 projects such as [Crosswalk](https://crosswalk-project.org/) by Intel Corporation and the
-[com.eface2face.iosrtc](http://plugins.cordova.io/#/package/com.eface2face.iosrtc) plugin from
+[cordova-plugin-iosrtc](http://plugins.cordova.io/#/package/cordova-plugin-iosrtc) plugin from
 eFace2Face, Inc.
 
 Any source transformations to the official opentok.js client SDK that are applied within this plugin
@@ -67,10 +67,6 @@ iOS:
      // You can now use OT
    }
    ```
-
-*  After installing the plugin, you must patch the installed version of the `com.eface2face.iosrtc`
-   plugin, in accordance to the following pull request:
-   <https://github.com/eface2face/cordova-plugin-iosrtc/pull/20/files>
 
 *  Denying access to the camera or microphone after it is requested (iOS's permission prompt) will
    cause a crash.
