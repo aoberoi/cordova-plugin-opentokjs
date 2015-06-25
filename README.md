@@ -25,10 +25,11 @@ updates automatically by being less specific: "v2" matches versions greater than
 "v2.0.0" and less than "v3.0.0". You can restrict updates by being more specific: "v2.6.0" matches
 just that version.
 
-## Example application
+## Example applications
 
-There is an example application available in this repo:
-<https://github.com/aoberoi/hello-opentokjs-cordova>.
+Basic Example app: <https://github.com/aoberoi/hello-opentokjs-cordova>.
+
+Ionic example: <https://github.com/Mobilea/cordova-plugin-opentokjs-example>.
 
 ## About this Plugin
 
