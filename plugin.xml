@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-opentokjs" version="0.1.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-opentokjs" version="0.1.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>OpenTokPlugin</name>
   <description />
   <author>Ankur Oberoi</author>
@@ -7,13 +7,7 @@
   <keywords>opentok,tokbox,video-chat,webrtc,realtime,rtc</keywords>
 
   <info>
-    OpenTok lets you weave real time communications with live video and audio into your application.
-
-    This package is a Cordova plugin to enable use of OpenTok on the iOS, Android, and Browser platforms.
-
-    Its built to make use of the official opentok.js client SDK over plugins which expose WebRTC
-    primitives to the Cordova web view.
-
+    OpenTok lets you weave real time communications with live video, audio, and data messaging into your application.
     Learn more: &gt;https://tokbox.com/platform&lt;
   </info>
 
