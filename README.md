@@ -68,15 +68,16 @@ iOS:
    }
    ```
 
-*  Denying access to the camera or microphone after it is requested (iOS's permission prompt) will
-   cause a crash.
+* Don't call plugin methods within WebSocket events (`onopen`, `onmessage`, etc). There is an issue in iOS Safari (see [issue #12](https://github.com/eface2face/cordova-plugin-iosrtc/issues/12)). Instead run a `setTimeout()` within the WebSocket event if you need to call plugin methods on it.
+  Or better, just load the provided [ios-websocket-hack.js](https://github.com/eface2face/cordova-plugin-iosrtc/blob/master/extra/ios-websocket-hack.js) script into your Cordova iOS app and you are done.
 
 *  A publisher's view is not size properly. It behaves similar to `fitMode: 'contain'`, where the
    image is letter/pillar boxed into the size of the publisher element. This might also affect
    subscriber streams from other devices, but remains to be tested.
 
 *  You cannot draw any UI over the video streams. This is a limitation imposed by the fact that the
-   rendering is always done in a UIView over top of the Cordova web view.
+   rendering is always done in a UIView over top of the Cordova web view. Currently work in progress
+   check [this issue](https://github.com/eface2face/cordova-plugin-iosrtc/issues/38).
 
 *  Building the project in Xcode requires special care. See the
    [instructions inside the iosrtc project](https://github.com/eface2face/cordova-plugin-iosrtc/blob/master/docs/Building.md).
